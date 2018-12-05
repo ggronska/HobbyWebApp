@@ -1,0 +1,31 @@
+<template name="person">
+  <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
+    <button class="delete">&times;</button>
+<!--  
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" /> -->
+    
+    {{#if isOwner}}
+      <button class="toggle-private">
+        {{#if private}}
+         Private
+        {{else}}
+        Public
+        {{/if}}
+      </button>
+    {{/if}}
+    <br>
+    <br>
+    <span class="text"><strong>{{username}}</strong> - {{text}}</span>
+    <br>
+    <br> 
+    <form class="new-hobby">
+      <!-- <input type="hidden" name=personId value={{_id}}> -->
+      <input type="text" name="text" placeholder="Type to add new hobby"/>
+    </form>
+    <br>
+    {{#each hobbies}} 
+    <br>
+      {{> hobby}}
+    {{/each}}
+  </li>
+</template>
